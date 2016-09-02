@@ -908,7 +908,9 @@ public class Log4jLogEvent implements LogEvent {
         }
 
         private static MutableContextData memento(final ContextData data) {
-            return new ArrayContextData(data); // TODO necessary to construct new instance?
+            final MutableContextData result = ContextDataFactory.createContextData();
+            result.putAll(data);
+            return result;
         }
 
         /**
